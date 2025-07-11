@@ -76,8 +76,7 @@ class DigitalSignatureApi extends ApiBase {
         $success = DigitalSignatureStore::addSignature( $pageId, $revId, $user->getId(), $contentHash, $remarks );
 
         if ( $success ) {
-            // Force MediaWiki to clear the parser cache for this page after successful signature
-            // This makes the page re-render from scratch on next view, picking up the new signature.
+            // Force MediaWiki to clear the parser cache for this page after successful signature. This makes the page re-render from scratch on next view, picking up the new signature.
             $wikiPage->doPurge();
             // Use LoggerFactory for logging
             LoggerFactory::getInstance( 'DigitalSignature' )->info( "DigitalSignature: Page ID $pageId purged from parser cache after successful signing." );

@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS /*_*/mw_digital_signatures (
   ds_rev_id INT NOT NULL,
   ds_user_id INT NOT NULL,
   ds_timestamp VARBINARY(14) NOT NULL,
-  ds_content_hash VARBINARY(32) NOT NULL, -- Assuming SHA256, 32 bytes
+  ds_content_hash VARBINARY(32) NOT NULL,
   ds_is_valid TINYINT(1) NOT NULL DEFAULT 1,
   ds_remarks TEXT NULL,
 

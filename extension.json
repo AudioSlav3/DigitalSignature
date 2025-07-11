@@ -5,7 +5,10 @@
     "url": "michael.lyle-1@nasa.gov",
     "descriptionmsg": "digitalsignature-desc",
     "license-name": "GPL-2.0-or-later",
-    "namespaces": {},
+    "type": "parserhook",
+    "requires": {
+        "MediaWiki": ">= 1.43.0"
+    },
     "AutoloadClasses": {
         "DigitalSignatureHooks": "includes/DigitalSignatureHooks.php",
         "DigitalSignatureApi": "includes/DigitalSignatureApi.php",

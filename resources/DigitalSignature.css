@@ -76,36 +76,3 @@
     margin-top: 0.5em;
     font-weight: bold;
 }
-/* Styles for Diff Display */
-.digital-signature-diff-area {
-    margin-top: 1em;
-    padding-top: 1em;
-    border-top: 1px dashed #ccc;
-    text-align: left; /* Ensure text aligns left within the diff area */
-}
-
-.digital-signature-diff-output {
-    font-family: monospace;
-    white-space: pre-wrap; /* Preserve whitespace and wrap lines */
-    word-wrap: break-word; /* Break long words */
-    background-color: #fff;
-    padding: 0.5em;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    max-height: 200px; /* Limit height and add scroll if content is long */
-    overflow-y: auto;
-}
-
-.diff-added {
-    background-color: #e6ffe6; /* Light green for added text */
-    color: #008000; /* Dark green text */
-    text-decoration: none; /* No underline */
-    font-weight: bold;
-}
-
-.diff-removed {
-    background-color: #ffe6e6; /* Light red for removed text */
-    color: #cc0000; /* Dark red text */
-    text-decoration: line-through; /* Strikethrough for removed text */
-    font-weight: bold;
-}

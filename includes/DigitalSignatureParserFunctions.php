@@ -39,7 +39,14 @@ class DigitalSignatureParserFunctions {
         $params = self::parseArgs( $args );
         $targetGroup = $params['group'] ?? null;
         $targetUser = $params['user'] ?? null;
-        //$showChanges = isset( $params['show_changes'] ) && strtolower( $params['show_changes'] ) === 'true';
+		/* 
+		====================================
+		Open work to show changes
+		------------------------------------
+		$showChanges = isset( $params['show_changes'] ) && strtolower( $params['show_changes'] ) === 'true';
+		====================================		
+		*/
+        
 
         // Determine the actual target for authorization
         $signingTargetType = null;
@@ -124,9 +131,8 @@ class DigitalSignatureParserFunctions {
                            'data-page-id="' . $pageId . '" ' .
                            'data-rev-id="' . $currentRevisionId . '" ' .
                            'data-target-type="' . htmlspecialchars( $signingTargetType ) . '" ' .
-						   'data-target-value="' . htmlspecialchars( $signingTargetValue ) . '" ' . // Pass target value
-						   //'data-show-changes-flag="' . ($showChanges ? 'true' : 'false') . '">' . // Pass show_changes flag
-						   '">' . // Closing span tag						 
+						   'data-target-value="' . htmlspecialchars( $signingTargetValue ) . '" ' . 
+						   '">' .
                            wfMessage( 'digitalsignature-sign-button' )->plain() .
                            '</span>' .
                            '<p class="digital-signature-message" style="display:none;"></p>' .

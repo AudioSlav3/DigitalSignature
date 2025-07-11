@@ -72,9 +72,7 @@ class DigitalSignatureHooks implements
             self::$logger->warning( "DigitalSignature: No signatures invalidated for page ID $pageId. Affected rows: $affectedRows." );
         }
 
-        // Force MediaWiki to clear the parser cache for this page
-        // This makes the page re-render from scratch on next view,
-        // picking up the updated signature status.
+        // Force MediaWiki to clear the parser cache for this page. This makes the page re-render from scratch on next view, picking up the updated signature status.
         $wikiPage->doPurge();
         self::$logger->info( "DigitalSignature: Page ID $pageId purged from parser cache." );
     }
@@ -96,6 +94,8 @@ class DigitalSignatureHooks implements
         // Only attempt to create if table doesn't exist
         if ( !$dbw->tableExists( $tableName ) ) {
             $sqlFilePath = __DIR__ . '/../sql/mw_digital_signatures.sql';
+			
+			self::$logger->debug( 'DigitalSignature: Attempting to read SQL file from: ' . $sqlFilePath );
 
             if ( file_exists( $sqlFilePath ) ) {
                 self::$logger->debug( 'DigitalSignature: Found SQL file at: ' . $sqlFilePath . ' for direct execution.' );
@@ -104,11 +104,17 @@ class DigitalSignatureHooks implements
                 if ( $sqlContent === false ) {
                     self::$logger->error( 'DigitalSignature: Failed to read SQL file content: ' . $sqlFilePath );
                     return;
-                }
+                } elseif ( empty( trim( $sqlContent ) ) ) { // Check if content is empty or just whitespace
+					self::$logger->error( 'DigitalSignature: SQL file content is empty or contains only whitespace: ' . $sqlFilePath );
+					return;
+				} else {
+					self::$logger->debug( 'DigitalSignature: Successfully read SQL file content. ' );					
+				}
 
                 // Replace /*$wgDBTableOptions*/ with actual table options
                 global $wgDBTableOptions;
                 $sqlContent = str_replace( '/*$wgDBTableOptions*/', $wgDBTableOptions, $sqlContent );
+				self::$logger->debug( 'DigitalSignature: SQL content after replacements. Length: ' . strlen( $sqlContent ) );
 
                 try {
                     // Execute the SQL content directly
@@ -116,6 +122,7 @@ class DigitalSignatureHooks implements
                     self::$logger->info( "DigitalSignature: Successfully created table '$tableName' via direct SQL execution." );
                 } catch ( Exception $e ) {
                     self::$logger->fatal( "DigitalSignature: Failed to create table '$tableName' via direct SQL: " . $e->getMessage() );
+					self::$logger->fatal( "DigitalSignature: Full SQL attempted to run: " . $sqlContent );
                 }
             } else {
                 self::$logger->error( 'DigitalSignature: SQL file NOT FOUND at: ' . $sqlFilePath );
