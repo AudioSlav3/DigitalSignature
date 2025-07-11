@@ -4,10 +4,10 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Content\WikitextContent;
-use MediaWiki\Logger\LoggerFactory; // Added for logging
+use MediaWiki\Logger\LoggerFactory;
 
 class DigitalSignatureStore {
-    private static $logger; // Logger instance
+    private static $logger; 
 
     public static function init() {
         self::$logger = LoggerFactory::getInstance( 'DigitalSignature' );
@@ -136,7 +136,7 @@ class DigitalSignatureStore {
             return null;
         }
 
-        // Use getText() to get the raw wikitext
+        // Use getText() to get the raw wikitext. Will be used in the SHA-1 hash. 
         $text = null;
         if ( $content instanceof WikitextContent ) {
             $text = $content->getText();
