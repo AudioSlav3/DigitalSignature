@@ -1,0 +1,111 @@
+.digital-signature-button-container {
+    margin: 1em 0;
+    padding: 1em;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.digital-signature-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.digital-signature-button:hover {
+    background-color: #45a049;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.digital-signature-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.digital-signature-display {
+    margin: 1em 0;
+    padding: 1.5em;
+    border: 2px solid #007bff; /* Blue border for signatures */
+    background-color: #e9f5ff; /* Light blue background */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.digital-signature-display h2 {
+    color: #007bff;
+    margin-top: 0;
+    border-bottom: 1px solid #a8d5ff;
+    padding-bottom: 0.5em;
+}
+
+.digital-signature-display p {
+    margin: 0.5em 0;
+    line-height: 1.5;
+}
+
+.digital-signature-display code {
+    background-color: #f0f0f0;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.digital-signature-info {
+    margin: 1em 0;
+    padding: 1em;
+    border: 1px dashed #cccccc;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    text-align: center;
+    color: #555;
+}
+
+.digital-signature-message {
+    margin-top: 0.5em;
+    font-weight: bold;
+}
+/* Styles for Diff Display */
+.digital-signature-diff-area {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: 1px dashed #ccc;
+    text-align: left; /* Ensure text aligns left within the diff area */
+}
+
+.digital-signature-diff-output {
+    font-family: monospace;
+    white-space: pre-wrap; /* Preserve whitespace and wrap lines */
+    word-wrap: break-word; /* Break long words */
+    background-color: #fff;
+    padding: 0.5em;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    max-height: 200px; /* Limit height and add scroll if content is long */
+    overflow-y: auto;
+}
+
+.diff-added {
+    background-color: #e6ffe6; /* Light green for added text */
+    color: #008000; /* Dark green text */
+    text-decoration: none; /* No underline */
+    font-weight: bold;
+}
+
+.diff-removed {
+    background-color: #ffe6e6; /* Light red for removed text */
+    color: #cc0000; /* Dark red text */
+    text-decoration: line-through; /* Strikethrough for removed text */
+    font-weight: bold;
+}

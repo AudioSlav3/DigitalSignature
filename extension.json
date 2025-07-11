@@ -1,0 +1,48 @@
+{
+    "name": "DigitalSignature",
+    "version": "1.1.0",
+    "author": "Michael Lyle",
+    "url": "michael.lyle-1@nasa.gov",
+    "descriptionmsg": "digitalsignature-desc",
+    "license-name": "GPL-2.0-or-later",
+    "namespaces": {},
+    "AutoloadClasses": {
+        "DigitalSignatureHooks": "includes/DigitalSignatureHooks.php",
+        "DigitalSignatureApi": "includes/DigitalSignatureApi.php",
+        "DigitalSignatureParserFunctions": "includes/DigitalSignatureParserFunctions.php",
+        "DigitalSignatureStore": "includes/DigitalSignatureStore.php"
+    },
+    "MessagesDirs": {
+        "DigitalSignature": "i18n"
+    },
+    "ExtensionMessagesFiles": {
+        "DigitalSignature": "i18n/en.json",
+        "DigitalSignatureAlias": "i18n/DigitalSignature.alias.php",
+        "DigitalSignatureMagic": "i18n/DigitalSignature.magic.php"
+    },
+    "Hooks": {
+        "ParserFirstCallInit": [
+            "DigitalSignatureHooks::onParserFirstCallInit"
+        ],
+        "EditPage::attemptSave_after": [
+            "DigitalSignatureHooks::onEditPage__attemptSave_after"
+        ],
+        "LoadExtensionSchemaUpdates": [
+            "DigitalSignatureHooks::onLoadExtensionSchemaUpdates"
+        ]
+    },
+    "APIModules": {
+        "digitalsignature": "DigitalSignatureApi"
+    },
+    "ResourceModules": {
+        "ext.DigitalSignature": {
+            "scripts": "extensions/DigitalSignature/resources/DigitalSignature.js",
+            "styles": "extensions/DigitalSignature/resources/DigitalSignature.css",
+            "dependencies": [
+                "mediawiki.api",
+                "mediawiki.user"
+            ]
+        }
+    },
+    "manifest_version": 2
+}
