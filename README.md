@@ -37,11 +37,11 @@ or
 
 Users that do not have signature authority will see
 
-![image](./screenshots/Page_Waiting_on_Signature.jpg)
-![image](./screenshots/Page_Signed.jpg)
+![image](./screenshots/Page%20Waiting%20on%20Signature.jpg)
+![image](./screenshots/Page%20Signed.jpg)
 
 
 Those that have signature authority for the page will see
 
-![image](./screenshots/Page_Waiting_on_Signature-ApprovedSigner.jpg)
-![image](./screenshots/Page_Signed.jpg)
+![image](./screenshots/Page%20Waiting%20on%20Signature-ApprovedSigner.jpg)
+![image](./screenshots/Page%20Signed.jpg)
