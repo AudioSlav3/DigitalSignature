@@ -28,7 +28,11 @@ A method for generating digital signature blocks that are limited to specific us
 Called like:
 
 ```
-{{#digital_signature:Manager}}
+{{#digital_signature:user=<username>}}
+
+or
+
+{{#digital_signature:group=<groupname>}}
 ```
 
 Users that do not have signature authority will see
